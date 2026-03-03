@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.HashSet;
 
 @Service
-@RequiredArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
     private User user;

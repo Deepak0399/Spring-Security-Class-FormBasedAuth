@@ -26,7 +26,7 @@ public class Demo2formBasedApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        User user1 = new User("admin",bCryptPasswordEncoder.encode("admin123"),"ROLE_ADMIN");
+        User user1 = new User("admin",bCryptPasswordEncoder.encode("admin1234"),"ROLE_ADMIN");
         User user2 = new User("member",bCryptPasswordEncoder.encode("member123"),"ROLE_MEMBER");
 
         List<User> list = Arrays.asList(user1, user2);

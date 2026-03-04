@@ -1,18 +1,14 @@
 package com.practice.demo2formbased.Service;
 
-
 import com.practice.demo2formbased.entity.*;
 import io.micrometer.common.lang.Nullable;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashSet;
 
-@Service
 public class UserDetailsImpl implements UserDetails {
 
     private User user;

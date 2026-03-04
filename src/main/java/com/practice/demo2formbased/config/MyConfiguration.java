@@ -15,23 +15,22 @@ public class MyConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf(c -> c.disable())
                 .authorizeHttpRequests(request -> request
-                                .requestMatchers("/test/admin").hasRole("ADMIN")
-                                .requestMatchers("/test/member").hasRole("MEMBER")
+                                .requestMatchers("/admin").hasRole("ADMIN")
+                                .requestMatchers("/member").hasRole("MEMBER")
                                 .anyRequest().permitAll())
                 .formLogin(form -> form
-                        .loginPage("/test/login")
+                        .loginPage("/login")
                         .loginProcessingUrl("/doLogin")
-                        .defaultSuccessUrl("/test/admin"))
+                        .defaultSuccessUrl("/admin"))
                 .logout(logout -> logout.logoutUrl("/doLogout"));
         
         return httpSecurity.build();
     }
-//    @Bean
-//    public AuthenticationManager authenticationManager(AuthenticationConfiguration auth) throws Exception {
-//        return auth.getAuthenticationManager();
-//    }
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration auth) throws Exception {
+        return auth.getAuthenticationManager();
+    }
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
